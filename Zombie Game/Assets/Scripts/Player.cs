@@ -56,6 +56,7 @@ public class Player : MonoBehaviour {
 
 	private bool IsGrounded()
 	{
-		return true;
+		return Physics2D.Raycast(new Vector2(transform.position.x - transform.localScale.x/2f, transform.position.y), Vector2.down, PlayerCollider.bounds.extents.y + 0.1f, GroundLayer) ||
+			Physics2D.Raycast(new Vector2(transform.position.x + transform.localScale.x / 2f, transform.position.y), Vector2.down, PlayerCollider.bounds.extents.y + 0.1f, GroundLayer);
 	}
 }
